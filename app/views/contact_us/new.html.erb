@@ -1,10 +1,10 @@
 <div id="contactContent">
-	<%= error_messages_for('contact_us', :header_message => "Your message could not be sent") %>
-
+<h1>Contact Us</h1>
+<p>Please fill out the form below, give us a call, or visit the store!</p>
 <%= form_for(:contact_us, :url => contact_us_url, :html => { :class => 'contact' }) do |f| %>
 <div class="formSection" style="border:none;">
   <fieldset>
-  <div class="input_block" style="float:left; margin-right:20px;">
+  <div class="input_block" style="float:left;">
 	<%= f.label :name %>
     <%= f.text_field :name, :size=>"40" %>
   </div>
@@ -25,5 +25,9 @@
 	</div>
 </div>
 <% end %>
+<div id="googleMap">
+<p>We are located at 117 W Michigan Ave, Marshall MI 49068.</p>
+<iframe width="400" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;client=firefox-a&amp;q=117+michigan+ave,+marshall+mi&amp;ie=UTF8&amp;hq=&amp;hnear=117+W+Michigan+Ave,+Marshall,+Michigan+49068&amp;gl=us&amp;sqi=2&amp;ll=42.272017,-84.95967&amp;spn=0.008383,0.015514&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?hl=en&amp;client=firefox-a&amp;q=117+michigan+ave,+marshall+mi&amp;ie=UTF8&amp;hq=&amp;hnear=117+W+Michigan+Ave,+Marshall,+Michigan+49068&amp;gl=us&amp;sqi=2&amp;ll=42.272017,-84.95967&amp;spn=0.008383,0.015514&amp;t=m&amp;z=14&amp;iwloc=A&amp;source=embed" style="color:#E6E6E6;text-align:left">View Larger Map</a></small>
+</div>
 </div>
 <br />

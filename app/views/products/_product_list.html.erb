@@ -1,0 +1,10 @@
+<% if @products.any? %>
+<dl>
+	<% @products.each do |product| %>  
+ <dt <%="class='#{product.product_type}'"-%>><%= link_to product.title, product %> <br />
+		<span><%= product.start_date.to_date.to_s(:long) %></span></dt>
+ <dd><%=h product.blurb %></dd>
+<br />
+<% end %>
+</dl>
+<% end %>

@@ -1,4 +1,20 @@
 <div id="mainContent">
-<h1>Welcome to Hodges Jewelers</h1>
-<p>This is the site for hodges Jewelers</p>
+	<div id="showcase">
+		<dt><%= link_to @event.title, @event %> <br />
+				<span><%= @event.start_date.to_date.to_s(:long) %></span></dt>
+		<dd><%=h @event.blurb %></dd>
+		<p>   
+		   <% if @showpic %>
+				<%= image_tag @event.eventpic.url(:large) %> <br />
+		   <% end %>
+		</p>
+	</div><!--end showcase-->
+	<div id="boxLeft">
+		<h1>Welcome to Hodges Jewelers!</h1>
+			<p>At Hodges, we pride ourselves on delivering elegance, beauty, and quality with every piece of jewelry we sell. From our selection of stunning antique estate pieces to wedding bands, we will never compromise quality or service to help you make the perfect statement.
+			<p>Whether you are looking for a stunning diamond, engagement ring, or custom jewelry piece, the expert staff at Hodges Jewelers can help you find exceptional jewelry in store and online.</p>
+			<p>Located in the heart of downtown Marshall, MI, we offer a great selection of jewelry alongside jewelry cleaning, jewelry maintenance, watch repair, gold buying, and more. Please browse our online store or contact us so that we can build the relationship that will provide you with the jewelry you want to last a lifetime.</p>
+		<h1>Need help finding the perfect diamond?</h1>
+			<p>Browse our online store and check out our handy <%= link_to "Diamond Buying Guide", ('/assets/diamond-buying-guide.pdf') %> to help get you started...</p>
+	</div>
 </div><!--end mainContent-->

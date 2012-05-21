@@ -1,0 +1,29 @@
+<div id="boxLeft">
+<%- content_for(:fck) do -%>
+	<%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+<%- end -%>
+
+<%= form_for(@product_cat, :html => { :multipart => true }) do |f| %>
+  <% if @product_cat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_cat.errors.count, "error") %> prohibited this product category from being saved:</h2>
+      <ul>
+      <% @product_cat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :cat_name, "Product Category" %><br />
+    <%= f.text_field :cat_name, :autofocus  => :t %>
+  </div><br />
+  <div class="field">
+    <%= f.label :description, "Description" %><br />
+   	<%= f.cktext_area :description, :toolbar=>'Basic', :width=>'500px', :height=>'200px' %>
+  </div><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

@@ -1,5 +1,25 @@
 Hod::Application.routes.draw do
-  	 	root :to => "dash#index"
+
+  resources :product_cats
+  resources :products
+  match 'history' => "history#index", :as => :history
+  match 'services' => "services#index", :as => :services
+  match 'store' => "store#index", :as => :store
+
+  resources :events
+
+  resources :users
+    resources "user_sessions"
+
+  	match 'login' => "user_sessions#new",      :as => :login
+  	match 'logout' => "user_sessions#destroy", :as => :logout
+  	
+  	match 'new_contact' =>  'contact_us#new', :conditions => { :method => :get }
+  	resources :contact_us, :only => [:new, :create]
+  	match 'contact_us' => 'contact_us#new'
+  	
+  	 	
+  	root :to => "dash#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -3,7 +3,7 @@
 <h1>Login</h1>
 <p id="notice"><%= notice %></p>
  
-<% form_for @user_session do |f| %>
+<%= form_for @user_session do |f| %>
 <% if @user_session.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user_session.errors.count, "error") %> prohibited this user session from being saved:</h2>

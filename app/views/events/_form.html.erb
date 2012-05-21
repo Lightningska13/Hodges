@@ -15,12 +15,9 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :event_type %><br />
-    <%= f.select(:event_type, ['Event','Announcement','Bulletin']) %><br />
-   		<span class="instructions">An Event will appear on the web site 30 days prior to its start date, and fall off after the end date. <br />
-	 		An Announcement item will be displayed on its start date, and fall off after the end date.<br />
-	A Bulletin will appear at the top of the home page on the start date and fall off after the end date.</span>
-  <br />
+    <%= f.label :event_type, ['Showcase'] %><br />
+    <%= f.select(:event_type, ['Showcase']) %><br />
+   		<span class="instructions">A Showcase will appear on the web site 30 days prior to its start date, and fall off after the end date. <br /></span>
   <br />
   </div>
   <div class="field">
@@ -52,10 +49,20 @@
   <br />
   </div>
   <div class="field">
+   <% if @showpic %>
+		<%= image_tag @event.pic.url(:medium) %> <br />
+		<label class="instructions"><input type="checkbox" name="delete_image" value="1" /> Check to remove image</label>
+    <br />
+	 <% end %>
+   <%= f.label :eventpic, "Event Picture" %><br /> 
+   <%= f.file_field :eventpic %> 
+  </div>
+  <br />
+  <div class="field">
 	<%= f.label :url %><br />
 	<%= f.text_field :url, :size => 50 %>
 	</div>
   <div class="actions">
-    <br /><%= f.submit %>
+    <br /><%= f.submit (['Create Showcase']) %>
   </div>
 <% end %>

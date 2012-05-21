@@ -1,8 +1,8 @@
 <% if admin? %>
 	<div class="login">
-		<%=section_link('Facets',:controller => 'facets', :action => 'index') %>
-		<%=section_link('Bios',:controller => 'bios', :action => 'index') %>
-		<%=section_link('Resources',:controller => 'resources', :action => 'index') %>
+		<%=section_link('Categories',:controller => 'product_cats', :action => 'index') %>
+		<%=section_link('Products',:controller => 'products', :action => 'index') %>
+		<%=section_link('Showcase',:controller => 'events', :action => 'index')%>
 		<%=section_link('Users',:controller => 'users', :action => 'index') %>
 		<%= link_to 'Logout', logout_path %>	
 		<span><%= current_user.name %> logged in</span>

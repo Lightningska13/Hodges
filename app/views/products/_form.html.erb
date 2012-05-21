@@ -1,0 +1,68 @@
+<%- content_for(:fck) do -%>
+	<%= javascript_include_tag :ckeditor %>
+<%- end -%>
+
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :size => 60 %>
+  <br />
+  <br />
+  <div class="field">
+  <%= f.label 'Category' %><br />
+		<%= collection_select(:product, :product_cat_id, @product_cats, :id, :cat_name, :prompt => true) %>
+  </div>
+	<br />
+	<br />  
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price, :size => 20 %>
+  <br />
+  <br />
+  </div>
+  <div class="field">
+    <%= f.label :item_number %><br />
+    <%= f.text_field :item_number, :size => 30 %>
+  <br />
+  <br />
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+   	<%= f.cktext_area :description, :toolbar=>'Basic', :width=>'500px', :height=>'200px' %>
+  <br />
+  <br />
+  </div>
+  <div class="field">
+   <% if @showpic %>
+		<%= image_tag @product.pic.url(:medium) %> <br />
+		<label class="instructions"><input type="checkbox" name="delete_image" value="1" /> Check to remove Picture 1</label>
+    <br />
+	 <% end %>
+	<% if @showpic2 %>
+		<%= image_tag @product.pic2.url(:medium) %> <br />
+		<label class="instructions"><input type="checkbox" name="delete_image" value="1" /> Check to remove Picture 2</label>
+    <br />
+	 <% end %>
+	<br />
+   <%= f.label :pic, "Product Picture 1" %>  
+   <%= f.file_field :pic %> <br /><br />
+   <%= f.label :pic2, "Product Picture 2" %>  
+   <%= f.file_field :pic2 %>
+  </div>
+  <div class="actions">
+    <br /><%= f.submit (['Update Product']) %>
+  </div>
+</div> <!-- end boxLeft -->
+<% end %>

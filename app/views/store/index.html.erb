@@ -1,0 +1,8 @@
+<div id="storeContent">
+	<h1>Shop Our Store</h1>
+			<% @product_cats.each do |product_cat| %>
+				<div id="storeCategory">
+					<h2><%= link_to product_cat.cat_name, 				  products_path(:cat=>product_cat), :class => 'cat' %></h2>
+				<p><%== product_cat.description %></p></div>
+			<% end %>
+	</div><!--end storeContent-->

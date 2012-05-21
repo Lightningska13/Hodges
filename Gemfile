@@ -9,6 +9,12 @@ gem 'sqlite3'
 
 gem 'json'
 
+gem 'pg', '0.9.0'
+gem 'authlogic' 
+gem 'paperclip'
+gem 'ckeditor'
+gem 'kaminari'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

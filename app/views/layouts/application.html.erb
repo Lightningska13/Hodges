@@ -2,19 +2,37 @@
 <html>
 <head>
   <title><%= SITE_NAME if SITE_NAME %> :: <%= @page_title %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <%= yield(:fck) -%>
 </head>
 <body>
 	<div id="wrapper">
+		<div id="header" >
+			<link rel= "shortcut icon" href="/assets/hodinitials.gif"/>
+		</div>
 		<div id="logo">
 		</div><!--endlogo-->
+		<div id="contactUs">
+			<h1><%= link_to 'Contact Us', :controller => 'contact_us', :action => 'new' %> (269) 789-2345</h1>
+			<%= render "/products/search" %><br /><br />
+			<dd style="text-decoration: underline;">Store Hours</dd>
+			<dd>Monday-Friday: 10am-5:30pm</dd>
+			<dd>Saturday: 10am-4:00pm</dd>
+			<dd>Sunday: Closed</dd>
+		</div><!--end contactUs-->
 			<div id="mainNav">
 				<%= render "/layouts/main_nav" %>
 			</div><!--endmainNav-->
-
-<%= yield %>
+			<%= render "/layouts/admin_nav" if admin? %>
+				<p style="color: green; margin-left:190px;"><%= flash[:notice] %></p>
+		<%= yield %>
+		<div id="footer">
+			Hodges Jewelers | 117 W Michigan Ave, Marshall MI 49068 | (269) 789-2345
+			<p><%= link_to image_tag('/assets/fblogo.gif'), ('http://www.facebook.com/pages/Hodges-Jewelers/173967249290290'), :target => '_blank' %></p>
+		</div><!--endfooter-->
 	</div><!--wrapper-->
 </body>
 </html>

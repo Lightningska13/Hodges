@@ -1,8 +1,8 @@
-<div id="mainContent">
+<div id="boxLeft">
 <div id="eventListing">
 <h1><%= @eventHeader %></h1>
 <% if admin? %>
-	<%= link_to 'New Event', new_event_path, :class => 'admin' %>
+	<%= link_to 'Create New Showcase', new_event_path, :class => 'admin' %>
 <% end %>
 <% @event_months.each do |month, events| %>  
  <h2 class="deptDivider"><%= month.strftime("%B %Y") %></h2>  
@@ -20,4 +20,4 @@
   </dl>
 <% end %> 
 </div>
-</div><!-- end maincontent -->
+</div><!-- end boxLeft -->

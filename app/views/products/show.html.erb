@@ -1,0 +1,77 @@
+<%- content_for(:fck) do -%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a#example1").fancybox({
+				'overlayShow'	: false,
+				'transitionIn'	: 'elastic',
+				'transitionOut'	: 'elastic',
+			});
+
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("a[rel=product_group]").fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+					return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + '</span>';
+				}
+			});
+		});
+	</script>
+<%- end -%>
+<div id="productRight">
+	<h1>Browse By Category:</h1>
+	<ul>
+		<% @product_cats.each do |product_cat| %>
+			<li><%= link_to product_cat.cat_name, products_path(:cat=>product_cat) %></li>
+		<% end %>
+	</ul>
+</div>
+<div id="boxLeft">
+  <h2><%= @product.name %> - $<%= @product.price %></h2>
+		<p class="list_item_number" style="margin-top: -12px">Item #<%= @product.item_number %></p>
+<p class="list_date">
+</p>
+<p>
+  <%== @product.description %>
+</p>	
+	<% if @showpic %>	
+		<%= link_to image_tag(@product.pic.url(:medium)), @product.pic.url(:large), :rel => "product_group", :alt => "Picture for #{@product.name}" %>
+		
+		<%= link_to image_tag(@product.pic2.url(:tiny)), @product.pic2.url(:large), :rel => "product_group", :alt => "Picture for #{@product.name}" if @showpic2 %>
+	<% else %>
+		<%= image_tag("/assets/no_image.gif")%>
+	<% end %>
+	</div>
+<div id="cart">
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<input type="submit"  name="submit" value="Add to Cart">
+	<input type="hidden" name="add" value="1">
+	<input type="hidden" name="cmd" value="_cart">
+	<input type="hidden" name="business" value="courtney@hodges.com">
+	<input type="hidden" name="item_name" value="<%= @product.name %>">
+	<input type="hidden" name="item_number" value="<%= @product.item_number %>">
+	<input type="hidden" name="amount" value="<%= @product.price %>">
+	<input type="hidden" name="no_shipping" value="0">
+	<input type="hidden" name="shipping" value="10.00">
+	<input type="hidden" name="tax_rate" value="6.0">
+	<input type="hidden" name="return" value="http://www.hodgesjewelers.com/products/product[:id]">
+	<input type="hidden" name="cancel_return" value="http://www.hodgesjewelers.com/products/product[:id]">
+	<input type="hidden" name="no_note" value="1">
+	<input type="hidden" name="currency_code" value="USD">
+	<input type="hidden" name="lc" value="US">
+	<input type="hidden" name="custom" value="34803">
+	<input type="hidden" name="bn" value="PP-ShopCartBF">
+	</form>
+</div><br />
+<%= link_to 'Back', :back %>
+<% if admin? %>
+<br />
+<%= link_to 'Edit', edit_product_path(@product), :class=>'admin' %> |
+<%= link_to 'Index', products_path, :class=>'admin' %>
+<% end %>
+</div>

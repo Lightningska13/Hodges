@@ -1,0 +1,23 @@
+<div id="boxLeft">
+<h1>Product Categories List</h1>
+
+<p><%= link_to 'New Category', new_product_cat_path, :class=>"admin" %></p>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th style="color: #907757">Category</th>
+    <th style="color: #907757">Blurb</th>
+  </tr>
+
+<% @product_cats.each do |product_cat| %>
+  <tr class="<%= cycle('even', 'odd') %>">
+    <td><%= link_to 'Edit', edit_product_cat_path(product_cat), :class=>"admin" %></td>
+    <td><%= link_to 'Destroy', product_cat, :confirm => 'Are you sure?', :method => :delete, :class=>"admin" %></td>
+    <td style="color: #907757"><%= product_cat.cat_name %></td>
+    <td class='instructions'><%== product_cat.description %></td>
+  </tr>
+<% end %>
+</table>
+</div>

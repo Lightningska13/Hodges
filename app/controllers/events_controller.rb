@@ -36,10 +36,10 @@ class EventsController < ApplicationController
 	    end
 	    
   	else
-   		mytype="event_type='Event'"
+   		mytype="event_type='Showcase'"
   		myorder='start_date asc'
 	    @page_title = "Events"
-	    @eventHeader="Event Calendar"
+	    @eventHeader="Showcase Calendar"
  		end
  		
 	 # @events = Event.find(:all, :order=>myorder, :conditions=>mytype + @mycondition)
@@ -57,6 +57,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @page_title = @event.title
+    @showpic = @event.eventpic_file_name
 
     respond_to do |format|
       format.html # show.html.erb

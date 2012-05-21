@@ -1,10 +1,14 @@
-<div id="mainContent">
-  <h2><%=h @event.title %></h2>
+<div id="boxLeft">
+  <h1><%=h @event.title %></h1>
 <p class="list_date">
   <%=h @event.start_date.strftime("%A %B %e, %Y") %>  <% if @event.event_type!='News' %><%=h  " - " + @event.end_date.strftime("%A %B %e, %Y") if @event.end_date != @event.start_date %><% end %>
 
 </p>
-
+<p>
+   <% if @showpic %>
+		<%= image_tag @event.eventpic.url(:medium) %> <br />
+   <% end %>
+</p>
 <p>
   <i><%= @event.blurb %></i>
 </p>
