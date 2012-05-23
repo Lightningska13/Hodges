@@ -85,10 +85,6 @@ body {
 #mainNav a:active {
 	color: #E6E6E6;
 }
-#navStyle {
-	margin-top: -10px;
-	margin-left: -10px;
-}
 #mainContent {
 	font-size: 12px;
 	color: #E6E6E6;

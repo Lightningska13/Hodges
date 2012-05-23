@@ -1,7 +1,7 @@
 <div id="mainContent">
 	<% if @event.presence %>
 	<div id="showcase">
-		<dl style="margin: 0;">
+		<dl>
 			<dt><%= link_to @event.title, @event %></dt>
 				<dd><%= @event.start_date.to_date.to_s(:long) %></dd>
 				<dd><%=h @event.blurb %></dd>
