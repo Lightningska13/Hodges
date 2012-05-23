@@ -1,4 +1,5 @@
 <div id="mainContent">
+	<% if @event.presence %>
 	<div id="showcase">
 		<dt><%= link_to @event.title, @event %> <br />
 				<span><%= @event.start_date.to_date.to_s(:long) %></span></dt>
@@ -9,6 +10,7 @@
 		   <% end %>
 		</p>
 	</div><!--end showcase-->
+	<% end %>
 	<div id="boxLeft">
 		<h1>Welcome to Hodges Jewelers!</h1>
 			<p>At Hodges, we pride ourselves on delivering elegance, beauty, and quality with every piece of jewelry we sell. From our selection of stunning antique estate pieces to wedding bands, we will never compromise quality or service to help you make the perfect statement.
