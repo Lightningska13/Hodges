@@ -1,9 +1,11 @@
 <div id="mainContent">
 	<% if @event.presence %>
 	<div id="showcase">
-		<dt><%= link_to @event.title, @event %> <br />
-				<span><%= @event.start_date.to_date.to_s(:long) %></span></dt>
-		<dd><%=h @event.blurb %></dd>
+		<dl style="margin: 0;">
+			<dt><%= link_to @event.title, @event %></dt>
+				<dd><%= @event.start_date.to_date.to_s(:long) %></dd>
+				<dd><%=h @event.blurb %></dd>
+		</dl>
 		<p>   
 		   <% if @showpic %>
 				<%= image_tag @event.eventpic.url(:large) %> <br />
