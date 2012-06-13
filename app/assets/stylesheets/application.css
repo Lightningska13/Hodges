@@ -121,6 +121,7 @@ body {
 #storeContent h1 {
 	font-size: 21px;
 	font-style: italic;
+	padding-top: 10px;
 }
 #storeCategory {
 	width: 300px;
@@ -246,21 +247,13 @@ body {
 	padding-right: 20px;
 }
 #footer {
-	clear: both;
-	width: 360px;
-	height: 20px;
-	color: #E6E6E6;
 	font-size: x-small;
-	font-family: "Segoe UI", Candara,"Bitstream Vera Sans","DejaVu Sans","Trebuchet MS",Verdana,sans-serif;
-	padding-left: 300px;
 	padding-top: 20px;
-}
-#footer p {
-	float: right;
-	margin-top: -14px;
+	text-align: center;
 }
 #footer img {
 	border: 0;
+	vertical-align: middle;
 }
 /* Event Calendar */
 #eventListing h1 {

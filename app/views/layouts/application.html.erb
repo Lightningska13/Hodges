@@ -28,10 +28,10 @@
 			</div><!--endmainNav-->
 			<%= render "/layouts/admin_nav" if admin? %>
 				<p style="color: #855C33; margin-left:100px;"><%= flash[:notice] %></p>
-		<%= yield %>
+		<%= yield %><br clear='both' />
 		<div id="footer">
 			Hodges Jewelers | 117 W Michigan Ave, Marshall MI 49068 | (269) 789-2345
-			<p><%= link_to image_tag('/assets/fblogo.gif'), ('http://www.facebook.com/pages/Hodges-Jewelers/173967249290290'), :target => '_blank' %></p>
+			<%= link_to image_tag('/assets/fblogo.gif'), ('http://www.facebook.com/pages/Hodges-Jewelers/173967249290290'), :target => '_blank' %>
 		</div><!--endfooter-->
 	</div><!--wrapper-->
 </body>

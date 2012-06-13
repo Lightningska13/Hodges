@@ -1,6 +1,6 @@
 class ContactUsMailer < ActionMailer::Base
 
-  default :to => "patrick.lighthall@gmail.com", :subject => "Contact From Hodges Website"
+  default :to => "patrick.lighthall@gmail.com", :subject => "Contact From Website"
 
   def send_confirmation(message)
     @message = message
