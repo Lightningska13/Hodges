@@ -30,8 +30,9 @@
 				<p style="color: #855C33; margin-left:100px;"><%= flash[:notice] %></p>
 		<%= yield %><br clear='both' />
 		<div id="footer">
-			Hodges Jewelers | 117 W Michigan Ave, Marshall MI 49068 | (269) 789-2345
-			<%= link_to image_tag('/assets/fblogo.gif'), ('http://www.facebook.com/pages/Hodges-Jewelers/173967249290290'), :target => '_blank' %>
+			<p>Hodges Jewelers | 117 W Michigan Ave, Marshall MI 49068 | (269) 789-2345
+			<%= link_to image_tag('/assets/fblogo.gif'), ('http://www.facebook.com/pages/Hodges-Jewelers/173967249290290'), :target => '_blank' %></p>
+			<p style="margin-top: -20px; color: #FFF;"><%= link_to "Black Sails Studio", ('http://www.facebook.com/BlackSailsStudio'), :target => '_blank' %></p>
 		</div><!--endfooter-->
 	</div><!--wrapper-->
 </body>

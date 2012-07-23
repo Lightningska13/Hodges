@@ -1,8 +1,5 @@
 <div id="storeContent">
-	<h1>Shop Our Store</h1>
-			<% @product_cats.each do |product_cat| %>
-				<div id="storeCategory">
-					<h2><%= link_to product_cat.cat_name, 				  products_path(:cat=>product_cat), :class => 'cat' %></h2>
-				<p><%== product_cat.description %></p></div>
-			<% end %>
-	</div><!--end storeContent-->
+	<h1>Shop Our Online Store</h1>
+		We are currently generating our inventory list. Check back soon and you will be able to browse our inventory (including product information, images, and prices), and purchase items securely through our store online!
+		<p style="padding-left: 250px;"><%= image_tag('/assets/DSCN1654.JPG') %><p>
+</div><!--end storeContent-->
