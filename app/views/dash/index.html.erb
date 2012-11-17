@@ -4,7 +4,7 @@
 		<dl>
 			<dt><%= link_to @event.title, @event %></dt>
 				<dd><%= @event.start_date.to_date.to_s(:long) %></dd>
-				<dd><%=h @event.blurb %></dd>
+				<dd><%= @event.blurb %></dd>
 		</dl>
 		<p>   
 		   <% if @showpic %>

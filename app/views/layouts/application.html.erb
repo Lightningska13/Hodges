@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
   <title><%= SITE_NAME if SITE_NAME %> :: <%= @page_title %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+    @media (min-width: 481px) and (max-width: 768px) {
+    }
 
+    @media (min-width: 321px) and (max-width: 480px) {
+    }
+
+    @media (max-width: 320px) {
+    }
+
+	</style>
   <%= yield(:fck) -%>
 </head>
 <body>
@@ -20,7 +31,7 @@
 			<%= render "/products/search" %><br /><br />
 			<dd style="text-decoration: underline;">Store Hours</dd>
 			<dd>Monday-Friday: 10am-5:30pm</dd>
-			<dd>Saturday: 10am-2:00pm</dd>
+			<dd>Saturday: 10am-4:00pm</dd>
 			<dd>Sunday: Closed</dd>
 		</div><!--end contactUs--><br clear="both" />
 			<div id="mainNav">
