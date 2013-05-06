@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
    		else
       @products = Product.order(:name).page(params[:page]).per(12)
       @page_header = "All Products"
-      @title_text = "All Products" 
+      @title_text = "Browse Our Store" 
     end
 
     respond_to do |format|

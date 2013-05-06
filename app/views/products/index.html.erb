@@ -1,12 +1,13 @@
 <div id="productLeft">
 <h1><%= @title_text %></h1>
+	<p>	We offer our fine estate and hand-crafted jewelry pieces both in the store and online.</p>
 		<% if admin? %>
 	<%= link_to 'Create New Product', new_product_path, :class => 'admin' %>
 		<% end %>
-	<p><%= link_to 'Back to Store', store_path %></p>
    <dl>
 	<%= paginate @products %>
 	<%= render "store_grid" %>
+	<%= paginate @products %>
   </dl>
 </div><!-- end productLeft -->
 <div id="productRight">

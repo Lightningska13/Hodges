@@ -195,15 +195,17 @@ body {
 #boxLeft {
 	float: left;
 	clear: none;
-	color: #E6E6E6;
-	font-size: 12px;
+	font-size: 14px;
 	font-family: "Segoe UI", Candara,"Bitstream Vera Sans","DejaVu Sans","Trebuchet MS",Verdana,sans-serif;
 	padding-left: 10px;
 	padding-right: 10px;
-	width: 500px;
+	width: 300px;
 	/*border: 1px solid #E6E6E6;
 	border-radius: 10px;
 	box-shadow: 2px 2px 2px #4C4C4C; */
+}
+#boxLeft p {
+	width: 500px;
 }
 #boxLeft dl {
 	font-size: 14px;
@@ -227,6 +229,10 @@ body {
 #boxLeft td {
 	padding-bottom: 8px;
 	border-bottom: 1px solid #CCCCCC;
+}
+#legal {
+	font-size: x-small;
+	padding-top: 5px;
 }
 .list_item_number {
 	color: #4C4C4C;

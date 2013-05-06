@@ -30,14 +30,12 @@
 			<li><%= link_to product_cat.cat_name, products_path(:cat=>product_cat) %></li>
 		<% end %>
 	</ul>
+	<!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png" border="0" alt="Payments by PayPal"></a><div style="text-align:center"><a href="https://www.paypal.com/webapps/mpp/how-paypal-works"><font size="2" face="Arial" color="#0079CD">How PayPal Works</font></a></div></td></tr></table><!-- PayPal Logo -->
 </div>
 <div id="boxLeft">
-  <h2><%= @product.name %> - $<%= @product.price %></h2>
+  <h2><%= @product.name %> - <%= number_to_currency(@product.price) %></h2>
 		<p class="list_item_number" style="margin-top: -12px">Item #<%= @product.item_number %></p>
 <p class="list_date">
-</p>
-<p>
-  <%== @product.description %>
 </p>	
 	<% if @showpic %>	
 		<%= link_to image_tag(@product.pic.url(:medium)), @product.pic.url(:large), :rel => "product_group", :alt => "Picture for #{@product.name}" %>
@@ -46,9 +44,10 @@
 	<% else %>
 		<%= image_tag("/assets/no_image.gif")%>
 	<% end %>
-	</div>
+	  <%== @product.description %>
+</div>
 <div id="cart">
-			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 	<input type="submit"  name="submit" value="Add to Cart">
 	<input type="hidden" name="add" value="1">
 	<input type="hidden" name="cmd" value="_cart">
@@ -59,8 +58,8 @@
 	<input type="hidden" name="no_shipping" value="0">
 	<input type="hidden" name="shipping" value="10.00">
 	<input type="hidden" name="tax_rate" value="6.0">
-	<input type="hidden" name="return" value="http://www.hodgesjewelers.com/products/product[:id]">
-	<input type="hidden" name="cancel_return" value="http://www.hodgesjewelers.com/products/product[:id]">
+	<input type="hidden" name="return" value="http://www.hodgesjewelers.com/products/<%= @product.id %>">
+	<input type="hidden" name="cancel_return" value="http://www.hodgesjewelers.com/products/<%= @product.id %>">
 	<input type="hidden" name="no_note" value="1">
 	<input type="hidden" name="currency_code" value="USD">
 	<input type="hidden" name="lc" value="US">
@@ -68,10 +67,12 @@
 	<input type="hidden" name="bn" value="PP-ShopCartBF">
 	</form>
 </div><br />
-<%= link_to 'Back', :back %>
+<%= link_to 'Return To Products', :back %>
+<div id="legal">
+	Transactions are handled securely through Paypal&reg. We do our best to provide the most up-to-date pricing and availability information. However, there may be typographical, incomplete, or missing data represented on the website. Hodges Jewelers makes no warranties as to the accuracy, timeliness, or accuracy of the information provided on this website. Hodges Jewelers reserves the right to correct and update product information at any time. As always, we will do our best to provide the most up-to-date and accurate information at the time of your order and handle the process safely and securely via Paypal&reg.
+</div>
 <% if admin? %>
 <br />
 <%= link_to 'Edit', edit_product_path(@product), :class=>'admin' %> |
 <%= link_to 'Index', products_path, :class=>'admin' %>
 <% end %>
-</div>

@@ -3,7 +3,6 @@
 	<div id="featuredCat">
 	</div>
 	<% elsif @title_text %>
-		<div class="monthDivider"><%= @title_text %></div>
 		<div class="instructions"><%= @blurb %> </div>
 	<% end %>
 	<ul>
@@ -13,13 +12,10 @@
 				<%= link_to 'Edit', edit_product_path(product), :class => 'admin', :style=> "display:inline;" %> | <%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete, :class => 'admin', :style=> "display:inline;" %><br /><br />
 			<% end %>
 			<%= link_to(product) do %>
-
 				<%= image_tag(check_pic(product), :border => 0, :alt => product.name) %><br />
-
-				<div><span><%= product.name %><br />$<%= product.price %><br /><b>Item #<%= product.item_number %></b></span></div>
+				<div><span><%= product.name %><br /><%= number_to_currency(product.price) %><br /><b>Item #<%= product.item_number %></b></span></div>
 			<% end %>
 		</li>		
 		<% end %>
 	</ul>
-	
 </div>
